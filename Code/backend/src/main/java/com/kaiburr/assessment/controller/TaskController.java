@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -45,7 +44,13 @@ public class TaskController {
     @PutMapping("/task")
     public ResponseEntity<String> addTask(@RequestBody Task task) {
         try {
-            task.setArunGovindProperty(UUID.randomUUID().toString().substring(0, 5));
+            String inputString = "ArunGovind";
+            StringBuilder randomString = new StringBuilder();
+            for (int i = 0; i < 5; i++) {
+                char randomChar = inputString.charAt((int) (Math.random() * inputString.length()));
+                randomString.append(randomChar);
+            }
+            task.setArunGovindProperty(randomString.toString());
             repo.save(task);
             return new ResponseEntity<>("Task " + task + " added successfully", HttpStatus.OK);
         } catch(Exception e) {
