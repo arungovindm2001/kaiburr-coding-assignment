@@ -65,12 +65,12 @@ public class Task {
     @Override
     public String toString() {
         return "{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", assignee='" + assignee + '\'' +
-                ", project='" + project + '\'' +
-                ", startTime='" + startTime + '\'' +
-                ", arunGovindProperty='" + arunGovindProperty + '\'' +
+                "\"name\":\"" + name + '\"' +
+                ", \"id\":\"" + id + '\"' +
+                ", \"assignee\":\"" + assignee + '\"' +
+                ", \"project\":\"" + project + '\"' +
+                ", \"startTime\":\"" + startTime + '\"' +
+                ", \"arunGovindProperty\":\"" + arunGovindProperty + '\"' +
                 '}';
     }
 }

@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins="*")
 public class TaskController {
 
     @Autowired
@@ -20,22 +22,24 @@ public class TaskController {
     SearchRepository sRepo;
 
     @GetMapping("/tasks")
-    public ResponseEntity<String> getAllTasks() {
+    public ResponseEntity<List<Task>> getAllTasks() {
+        List<Task> result = null;
         try {
-            return new ResponseEntity<>(repo.findAll().toString(), HttpStatus.OK);
+            result = repo.findAll();
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity<>("Error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/tasks/name={query}")
-    public String getAllTasksByName(@PathVariable String query) {
-        return sRepo.findByName(query).toString();
+    public List<Task> getAllTasksByName(@PathVariable String query) {
+        return sRepo.findByName(query);
     }
 
     @GetMapping("/tasks/assignee={query}")
-    public String getAllTasksByAssignee(@PathVariable String query) {
-        return sRepo.findByAssignee(query).toString();
+    public List<Task> getAllTasksByAssignee(@PathVariable String query) {
+        return sRepo.findByAssignee(query);
     }
 
     @PutMapping("/task")
