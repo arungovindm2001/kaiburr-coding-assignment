@@ -53,6 +53,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>assessment</finalName>
 	</build>
 
 </project>
