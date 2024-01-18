@@ -37,6 +37,6 @@ jobs:
         image: arungovindm/assessment
         tags: latest
         registry: docker.io
-        dockerfile: ./Code/backend/Dockerfile
+        dockerfile: Code/backend/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
