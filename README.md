@@ -5,7 +5,7 @@
 | Task 1 - REST API | ✔️ |
 | Task 2 - Kubernetes | ✔️ |
 | Task 3 - UI | ✔️ |
-| Task 4 - CI/CD | Not done |
+| Task 4 - CI/CD | ✔️ |
 | Task 5 - Data Science | Not done |
 
 Task 3 uses NextJS Framework
